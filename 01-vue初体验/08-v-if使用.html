@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div id="app">
+       <h2 v-if="score>=90">优秀</h2>
+        <h2 v-else-if="score>=80">良好</h2>
+        <h2 v-else-if="score>=60">及格</h2>
+        <h2 v-else>不及格</h2>
+        <br>
+<!--v-if: 当条件为false时，包含v-if指令的元素，根本就不会存在dom中，true时vue就直接创建一个虚拟dom，在选择只出现一次时使用 -->
+      <h2 v-if="isShow" id="aaa">{{message}}</h2>
+        <!--v-show: 当条件为false时， v- show只是给我们的元素添加一个行内样式: display: none,这个属性要在显示和隐藏之间切换非常频繁时使用-->
+        <h2 v-show="isShow" id="bbb">{{message}}</h2>
+        <br>
+        <span v-if="isUser">
+<!--            加入key值是防止虚拟dom将用户输入的东西重复使用，导致不能发生改变-->
+            <label for="username">用户账号</label>
+            <input type="text" id="username" placeholder="请输入账号" key="username">
+        </span>
+        <span v-else>
+          <label for="email" >用户邮箱</label>
+            <input type="text" id="email" placeholder="请输入邮箱" key="email">
+        </span>
+        <button @click="isUser=!isUser"> 切换类型</button>
+    </div>
+</head>
+<body>
+
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    //申明式编程
+    const app=new Vue({
+        el:'#app',//挂载数据管理
+        data:{
+            message:"我是一个小朋友",
+            movies:['海绵宝宝','蜘蛛侠','熊出没'],
+            score:99,
+            isUser:true,
+            isShow:true
+        },
+        methods:{
+
+        }
+    })
+    //普通js是命令式编程
+</script>
+</html>

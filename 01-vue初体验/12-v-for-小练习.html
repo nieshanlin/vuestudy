@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        .active{
+            color: blue;
+        }
+        .title{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+ <ul>
+      <li v-for="(item,index) in names" :class="{active:currentIndex===index}" @click="liClick(index)">{{item}}</li>
+    </ul>
+
+</div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+
+    //申明式编程
+    const app=new Vue({
+        el:'#app',//挂载数据管理
+        data:{
+            names:['11','22','33','44'],
+            currentIndex:0
+        },
+        methods:{
+            liClick(index){
+                this.currentIndex=index
+            }
+        }
+    })
+    //普通js是命令式编程
+</script>
+</html>

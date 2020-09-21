@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<div id="app">
+    <ul>
+        <li v-for="item in movies">{{item}}</li>
+    </ul>
+<h2>{{message}}</h2>
+<!--    不可改变-->
+    <h2 v-once>{{message}}</h2>
+<!--    html解析-->
+    <h2 v-html="url"></h2>
+<!--    文本编辑-->
+    <h2 v-text="message"></h2>
+<!--    不对元素进行任何操作-->
+    <h2 v-pre>{{message}}</h2>
+<!--    图片渲染-->
+    <img v-bind:src="image" alt="">
+    <a v-bind:href="herf">百度一下</a>
+<!--    也可以这样写-->
+    <img :src="image" alt="">
+    <a :href="herf">百度一下</a>
+</div>
+</head>
+<body>
+
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    //申明式编程
+    const app=new Vue({
+        el:'#app',//挂载数据管理
+        data:{
+            message:"我是一个小朋友",
+            movies:['海绵宝宝','蜘蛛侠','熊出没'],
+            url:"<a href=\"https://www.bilibili.com/video/BV15741177Eh?p=13\">bilibili的vue语法</a>",
+           image:'https://www.tfswufe.edu.cn/images/zhengmen.jpg',
+            herf:'https://www.baidu.com'
+        }
+    })
+    //普通js是命令式编程
+</script>
+</html>

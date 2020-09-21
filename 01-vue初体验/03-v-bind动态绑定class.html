@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        .active{
+            color: rebeccapurple;
+        }
+        .title{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+<!--      对象语法-->
+    <h2 class="title" :class="{active:isActive,line: isLine}" >{{message}}</h2>
+<!--   数组语法-->
+    <h2 class="title" :class="[active,line]" >{{message}}</h2>
+    <button v-on:click="bthClick">点击变色</button>
+</div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    //申明式编程
+    const app=new Vue({
+        el:'#app',//挂载数据管理
+        data:{
+            message:"我是一个小朋友",
+            isActive:true,
+            isLine:true
+        },
+        methods:{
+     bthClick:function () {
+                this.isActive=!this.isActive
+            }
+        }
+    })
+    //普通js是命令式编程
+</script>
+</html>

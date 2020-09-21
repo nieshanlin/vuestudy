@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+<!--插槽替换-->
+    <cpn><button slot="center">只会替换中间的插槽</button></cpn>
+    <cpn><a href="" slot="left">替换左边的插槽</a></cpn>
+</div>
+<template id="cpn">
+    <div>
+        <!--    插槽的使用,使其具备扩展性，预留一些空间-->
+        <!--    在插槽里面自定义的属性标签，外面不另外写就会默认使用，外面调了插槽就会覆盖-->
+<!--        起了名字的插槽不会被外面的组件替换-->
+        <slot name="left"><button>左边的插槽</button></slot>
+        <slot name="center"><button>中间的插槽</button></slot>
+        <slot name="right"><button>右边的插槽</button></slot>
+
+    </div>
+</template>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',//挂载数据管理
+        data:{
+            message:"我是一个小朋友",
+            movies:['金','木','水','火','土']
+        },
+        components:{
+            cpn:{
+                template:'#cpn'
+            }
+        }
+    })
+    //普通js是命令式编程
+</script>
+</html>

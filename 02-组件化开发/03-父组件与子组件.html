@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+    <!--        3.使用组件-->
+    <mycpn></mycpn>
+</div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    //申明式编程
+    //1.创建组构造器对象
+    const  cpn= Vue.extend({
+        template:`<div><h2>标题</h2><p>内容</p></div>`
+    });
+    // 组件2,父组件
+    const  cpn2= Vue.extend({
+        template:`<div><h2>标题2</h2><p>内容2</p></div> <cpn1></cpn1>`,
+        //在此注册组件1
+        components: {
+            cpn1:cpn
+        }
+    });
+    //2.注册组件，全局组件，意味可以在多个vue实例引用
+    // Vue.component('mycpn',cpn)
+    const app=new Vue({
+        el:'#app',//挂载数据管理
+        data:{
+            message:"我是一个小朋友",
+
+        },
+        //局部组件的定义
+        components:{
+            //mycpn是使用组件时的标签名
+            mycpn:cpn2
+        }
+    })
+    //普通js是命令式编程
+</script>
+</html>

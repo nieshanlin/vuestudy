@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div id="app">
+<!--        v-model能够实现双向绑定-->
+        <input type="text" v-model="message">{{message}}
+        <br>
+<!--        双向绑定实现原理-->
+        <input type="text" :value="message" v-on:input="valueChange">
+<!--        小案例-->
+        <br>
+        <h2>radio</h2>
+        <label for="male">
+            <input type="radio" id="male" name="sex" value="男" V-model="sex">男
+        </label>
+        <label for="female">
+            <input type="radio" id="female" name="sex" value="女" V-model="sex">女
+        </label>
+        <br>
+        <h2>您选择的性别是: {{sex}}</h2>
+        <br>
+        <h2>checkbox</h2>
+        <label for="agree">
+            <input type="checkbox" id="agree" v-model="isagree">是否同意
+        </label>
+        <button :disabled="!isagree">下一步</button>
+        <br>
+        <input type="checkbox" value="篮球" v-model="hobbis">篮球
+        <input type="checkbox" value="羽毛球" v-model="hobbis">羽毛球
+        <input type="checkbox" value="乒乓球" v-model="hobbis">乒乓球
+        <input type="checkbox" value="足球" v-model="hobbis">足球
+        <h2> 您的爱好是：{{hobbis}}</h2>
+        <br>
+        <select name="abc" id="" v-model="fruit">
+            <option value="苹果" >苹果</option>
+            <option value="香蕉" >香蕉</option>
+            <option value="李子" >李子</option>
+            <option value="西瓜" >西瓜</option>
+        </select>
+        <h2>您选择的水果是：{{fruit}}</h2>
+        <br>
+        <select name="abc"  v-model="fruits" multiple >
+            <option value="苹果" >苹果</option>
+            <option value="香蕉" >香蕉</option>
+            <option value="李子" >李子</option>
+            <option value="西瓜" >西瓜</option>
+        </select>
+        <h2>您选择的水果是：{{fruits}}</h2>
+        <br>
+        值绑定
+        <label v-for="item in originHobbies" :for="item">
+            <input type="checkbox" :value="item" :id="item" v-model="hobbis">{{item}}
+        </label>
+    </div>
+</head>
+<body>
+
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    //申明式编程
+    const app=new Vue({
+        el:'#app',//挂载数据管理
+        data:{
+           message:'你好啊',
+            sex:'男',
+            isagree:false,//单选
+            hobbis:[],//多选
+            fruit:'香蕉',
+            fruits:[],
+            originHobbies:['篮球','乒乓球','足球','羽毛球','台球']
+        },
+        methods:{
+            valueChange(event){
+                this.message=event.target.value;
+            }
+        }
+    })
+    //普通js是命令式编程
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div id="app">
+       1.修饰符：lazy的使用不用频繁的绑定事件，只有用户完成操作时才加载
+        <input type="text" v-model.lazy="message">
+        <h2>{{message}}</h2>
+        <br>
+        2.修饰符：number,可以改变输入的类型
+        <input type="text" v-model.number="age">
+        <h2>{{age}}-{{typeof age}}</h2>
+        <br>
+        3.修饰符：trim去除空格
+        <input type="text" v-model="name">
+        <h2>您输入的名字：{{age}}</h2>
+    </div>
+</head>
+<body>
+
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    //申明式编程
+    const app=new Vue({
+        el:'#app',//挂载数据管理
+        data:{
+            message:"我是一个小朋友",
+            age:0,
+            name:''
+        }
+    })
+    //普通js是命令式编程
+</script>
+</html>

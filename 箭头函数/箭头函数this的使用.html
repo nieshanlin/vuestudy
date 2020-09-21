@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   //什么时候写箭头函数，函数作为另外一个函数
+    //箭头函数会的this指向会寻找最近的作用域里面的有被定义的this
+    setTimeout(()=>{
+        console.log(this)
+    },1000)//this指向window
+const obj={
+        aaa(){
+            setTimeout(()=>{
+                console.log(this)//this指向aaa函数
+            },1000)
+        }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div id="app">
+    <!--    这个模板都只会调用Vue实例里面的内容，属于Vue实例里面的作用域-->
+<!--    父组件替换插槽的标签，但是内容是由子组件来提供-->
+  <template slot-scope="slot">
+<!--      <span v-for="item in slot">{{item}}</span>-->
+<!--      join来将数组改变变为字符串，并用-拼接-->
+      <span>{{slot.data.join(' - ')}}</span>
+  </template>
+</div>
+<template id="cpn">
+    <div>
+        <slot :data="pLanguages">
+        <ul>
+            <li v-for="item in pLangeguages">{{item}}</li>
+        </ul>
+        </slot>
+    </div>
+</template>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',//挂载数据管理
+        data:{
+            message:"我是一个小朋友",
+
+        },
+        components:{
+            cpn:{
+                template:'#cpn',
+                data(){
+                    return{
+                       pLangeguages:['C','Java','php','JavaScript','Python']
+                    }
+                }
+            }
+        }
+    })
+    //普通js是命令式编程
+</script>
+</html>

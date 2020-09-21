@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    new Promise((resolve ,reject)=>{
+         setTimeout(()=>{
+                    resolve()
+                },2000)
+
+    }).then(()=>{
+        console.log('疯狂嵌套');
+        console.log('疯狂嵌套');
+        console.log('疯狂嵌套');
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve()
+            },2000)
+        })
+    }).then(()=>{
+        console.log('疯狂嵌套2.0');
+        console.log('疯狂嵌套2.0');
+        console.log('疯狂嵌套2.0');
+        console.log('疯狂嵌套2.0');
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve()
+            },2000)
+        })
+    }).then(()=>{
+        console.log('疯狂嵌套3.0');
+        console.log('疯狂嵌套3.0');
+        console.log('疯狂嵌套3.0');
+        console.log('疯狂嵌套3.0');
+    })
+</script>
+</body>
+</html>

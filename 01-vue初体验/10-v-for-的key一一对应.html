@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        .active{
+            color: rebeccapurple;
+        }
+        .title{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    遍历数组
+    <br>
+    <ul>
+        <!--  1.在遍历的过程中,没有使用索引值，然后使用key值使key保持唯一性，然后和item一一对应，然后可以直接在中间插入值
+        key的作用主要是为了高效的更新虚拟DOM，这是vue的diff算法
+-->
+        <li v-for="item in names" ：key="item">{{item}}</li>
+    </ul>
+
+</div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+
+    //申明式编程
+    const app=new Vue({
+        el:'#app',//挂载数据管理
+        data:{
+            names:['11','22','33'],
+            info:{
+                name:'woshigaoshou',
+                age:18,
+                height:1.88
+            }
+        },
+        methods:{
+
+        }
+    })
+    //普通js是命令式编程
+</script>
+</html>
